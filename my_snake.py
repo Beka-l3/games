@@ -9,10 +9,10 @@ w = curses.newwin(sh, sw, 0 ,0)
 w.keypad(1)
 w.timeout(100)
 
-bx = sw/3
-by = sh/4
-sx = 1*bx
-sy = by*2
+bx = int(sw/3)
+by = int(sh/4)
+sx = int(1*bx)
+sy = int(by*2)
 
 
 def print_border(flag):
@@ -45,7 +45,7 @@ def print_border(flag):
 def print_mess(mess, my, mx):
 	messlen = len(mess)
 	for i in range(messlen):
-		w.addch(my, mx + i, mess[i])
+		w.addch(int(my), int(mx) + i, mess[i])
 
 
 def menu():
@@ -80,15 +80,15 @@ def game(flag):
 	w.clear()
 	print_border(flag)
 
-	snk_x = 3*sw/7
-	snk_y = sh/2
+	snk_x = int(3*sw/7)
+	snk_y = int(sh/2)
 	snake = [
 		[snk_y, snk_x],
 		[snk_y, snk_x - 1],
 		[snk_y, snk_x - 2]
 	]
 
-	food = [sh/2, sw/2]
+	food = [int(sh/2), int(sw/2)]
 	w.addch(food[0], food[1], 'o')
 	
 	score = [3, by, bx + sx + 5]
